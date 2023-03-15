@@ -19,10 +19,9 @@ class TextEditor extends Component {
   };
 
   puhsHistoy = () => {
-    let {language, ...rest} = this.state;/////history?
-    console.log(rest);
-    const history = this.state.history.slice();
-    history.push(this.state);
+    let { language, history, ...rest } = this.state; 
+    history = this.state.history.slice();
+    history.push(rest);
     this.setState({
       history: history,
     });
@@ -38,7 +37,6 @@ class TextEditor extends Component {
     this.setState({
       language: language,
     });
-    this.puhsHistoy();
   };
 
   handleChangeFontSize = (size) => {
@@ -94,6 +92,7 @@ class TextEditor extends Component {
     if (history.length > 0) {
       const lastState = history.pop();
       this.setState(lastState);
+      this.setState({history: history})
     }
   };
 
