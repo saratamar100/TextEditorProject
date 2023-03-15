@@ -1,22 +1,30 @@
-import React, { Component } from 'react';
-import './TextEditor.css';
-import LanguageSelector from './languageselector';
-import DisplayArea from './displayarea';
-import FormattingOptions from './formattingoptions';
-import GeneralChanges from './generalchanges';
-import Keyboard from './keyboard';
-import SpecialActions from './specialactions';
+import React, { Component } from "react";
+import "./TextEditor.css";
+import LanguageSelector from "./languageselector";
+import DisplayArea from "./displayarea";
+import FormattingOptions from "./formattingoptions";
+import GeneralChanges from "./generalchanges";
+import Keyboard from "./keyboard";
+import SpecialActions from "./specialactions";
 
 class TextEditor extends Component {
   state = {
-    text: '',
-    language: 'English',
-    fontSize: 'medium',
-    fontStyle: 'normal',
-    color: 'black',
+    text: "",
+    language: "English",
+    fontSize: "medium",
+    fontStyle: "normal",
+    color: "black",
     isUpperCase: false,
     history: [],
   };
+
+  // puhsHistoy = (state) => {
+  //   history.push(this.state);
+  //   this.setState({
+  //     ...state,
+  //     history: history,
+  //   });
+  // };
 
   handleUpdateText = (char) => {
     const updatedText = this.state.text + char;
@@ -54,7 +62,9 @@ class TextEditor extends Component {
 
   handleChangeCase = () => {
     const isUpperCase = !this.state.isUpperCase;
-    const updatedText = isUpperCase ? this.state.text.toUpperCase() : this.state.text.toLowerCase();
+    const updatedText = isUpperCase
+      ? this.state.text.toUpperCase()
+      : this.state.text.toLowerCase();
     this.setState({
       isUpperCase: isUpperCase,
       text: updatedText,
@@ -70,7 +80,7 @@ class TextEditor extends Component {
 
   handleClearAllText = () => {
     this.setState({
-      text: '',
+      text: "",
       history: [],
     });
   };
@@ -90,13 +100,21 @@ class TextEditor extends Component {
     return (
       <div className="TextEditor">
         <div className="KeyboardContainer">
-          <Keyboard updateText={this.handleUpdateText} />
+          <Keyboard
+            updateText={this.handleUpdateText}
+            language={this.state.language}
+          />
         </div>
         <div className="LanguageSelectorContainer">
           <LanguageSelector changeLanguage={this.handleChangeLanguage} />
         </div>
         <div className="DisplayAreaContainer">
-          <DisplayArea text={this.state.text} />
+          <DisplayArea
+            text={this.state.text}
+            color={this.state.color}
+            fontStyle={this.state.fontStyle}
+            fontSize={this.state.fontSize}
+          />
         </div>
         <div className="FormattingOptionsContainer">
           <FormattingOptions

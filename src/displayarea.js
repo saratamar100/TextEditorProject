@@ -1,8 +1,15 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 class DisplayArea extends Component {
   render() {
+    console.log(this.props);
     return (
-      <div>
+      <div
+        style={{
+          color: this.props.color,
+          fontStyle: this.props.fontStyle,
+          fontSize: this.props.fontSize,
+        }}
+      >
         {this.props.text}
       </div>
     );
