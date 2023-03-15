@@ -5,6 +5,33 @@ class Keyboard extends Component {
   };
 
   render() {
+    let lines = [
+      ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="],
+      ["ק", "ר", "א", "ט", "ו", "י", "פ", "ס", "ד", "ג", "כ", "ל", "ך", "ף"],
+      ["ז", "ח", "ט", "י", "ן", "מ", "צ", "ש", "ב", "ה", "נ", "מ", "ם"],
+      ["כ", "ל", "ע", "פ", "ך", "ף", "ץ", ",", ".", "/"],
+    ];
+    if (this.props.language === "English") {
+      lines = [
+        ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="],
+        ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"],
+        ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'"],
+        ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/"],
+      ];
+    }
+
+    return (
+      <>
+        {lines.map((line) => (
+          <div>
+            {line.map((c) => (
+              <button onClick={() => this.handleClick(c)}>{c}</button>
+            ))}
+          </div>
+        ))}
+      </>
+    );
+    /*
     let buttons;
     const letters = {
       eng: [
@@ -111,6 +138,7 @@ class Keyboard extends Component {
         <button onClick={() => this.handleClick(c)}>{c}</button>
       ));
     }
+
     return (
       <>
         <div>{buttons}</div>
@@ -125,7 +153,7 @@ class Keyboard extends Component {
           ))}
         </div>
       </>
-    );
+    );*/
   }
 }
 
