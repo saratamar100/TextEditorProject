@@ -19,12 +19,13 @@ class TextEditor extends Component {
   };
 
   puhsHistoy = () => {
-    let { language, history, ...rest } = this.state; 
-    history = this.state.history.slice();
-    history.push(rest);
-    this.setState({
-      history: history,
+    this.setState((oldState) => {
+      let { language, history, ...rest } = oldState;
+      history = this.state.history.slice();
+      history.push(rest);
+      return { history };
     });
+    console.log(this.state.history);
   };
 
   handleUpdateText = (char) => {
@@ -61,22 +62,17 @@ class TextEditor extends Component {
   };
 
   handleChangeCase = () => {
-    const isUpperCase = !this.state.isUpperCase;
-    const updatedText = isUpperCase
-      ? this.state.text.toUpperCase()
-      : this.state.text.toLowerCase();
-    this.setState({
-      isUpperCase: isUpperCase,
-      text: updatedText,
-    });
+    this.setState((oldState) => ({
+      text: oldState.isUpperCase
+        ? oldState.text.toLowerCase()
+        : oldState.text.toUpperCase(),
+      isUpperCase: !oldState.isUpperCase,
+    }));
     this.puhsHistoy();
   };
 
   handleDeleteLastChar = () => {
-    const updatedText = this.state.text.slice(0, -1);
-    this.setState({
-      text: updatedText,
-    });
+    this.setState((oldState) => ({ text: oldState.text.slice(0, -1) }));
     this.puhsHistoy();
   };
 
@@ -92,7 +88,15 @@ class TextEditor extends Component {
     if (history.length > 0) {
       const lastState = history.pop();
       this.setState(lastState);
-      this.setState({history: history})
+      this.setState({ history: history });
+    } else {
+      this.setState({
+        text: "",
+        fontSize: "medium",
+        fontStyle: "normal",
+        color: "black",
+        isUpperCase: false,
+      });
     }
   };
 
