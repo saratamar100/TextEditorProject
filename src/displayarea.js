@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 class DisplayArea extends Component {
   render() {
-    console.log(this.props);
     return (
       <div
         style={{

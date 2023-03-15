@@ -18,46 +18,48 @@ class TextEditor extends Component {
     history: [],
   };
 
-  // puhsHistoy = (state) => {
-  //   history.push(this.state);
-  //   this.setState({
-  //     ...state,
-  //     history: history,
-  //   });
-  // };
-
-  handleUpdateText = (char) => {
-    const updatedText = this.state.text + char;
+  puhsHistoy = () => {
+    let {language, ...rest} = this.state;/////history?
+    console.log(rest);
     const history = this.state.history.slice();
-    history.push(this.state.text);
+    history.push(this.state);
     this.setState({
-      text: updatedText,
       history: history,
     });
+  };
+
+  handleUpdateText = (char) => {
+    //const updatedText = this.state.text + char;
+    this.setState((oldState) => ({ text: oldState.text + char }));
+    this.puhsHistoy();
   };
 
   handleChangeLanguage = (language) => {
     this.setState({
       language: language,
     });
+    this.puhsHistoy();
   };
 
   handleChangeFontSize = (size) => {
     this.setState({
       fontSize: size,
     });
+    this.puhsHistoy();
   };
 
   handleChangeFontStyle = (style) => {
     this.setState({
       fontStyle: style,
     });
+    this.puhsHistoy();
   };
 
   handleChangeColor = (color) => {
     this.setState({
       color: color,
     });
+    this.puhsHistoy();
   };
 
   handleChangeCase = () => {
@@ -69,6 +71,7 @@ class TextEditor extends Component {
       isUpperCase: isUpperCase,
       text: updatedText,
     });
+    this.puhsHistoy();
   };
 
   handleDeleteLastChar = () => {
@@ -76,23 +79,21 @@ class TextEditor extends Component {
     this.setState({
       text: updatedText,
     });
+    this.puhsHistoy();
   };
 
   handleClearAllText = () => {
     this.setState({
       text: "",
-      history: [],
     });
+    this.puhsHistoy();
   };
 
   handleUndoAction = () => {
     const history = this.state.history.slice();
     if (history.length > 0) {
       const lastState = history.pop();
-      this.setState({
-        text: lastState,
-        history: history,
-      });
+      this.setState(lastState);
     }
   };
 
