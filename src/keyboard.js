@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DeleteButton from "./deletebutton";
 class Keyboard extends Component {
   handleClick = (char) => {
     this.props.updateText(char);
@@ -29,6 +30,7 @@ class Keyboard extends Component {
             ))}
           </div>
         ))}
+        <DeleteButton handleDeleteLastChar={this.props.deleteLastChar} />
       </>
     );
     /*

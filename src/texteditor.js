@@ -107,6 +107,7 @@ class TextEditor extends Component {
           <Keyboard
             updateText={this.handleUpdateText}
             language={this.state.language}
+            deleteLastChar={this.handleDeleteLastChar}
           />
         </div>
         <div className="LanguageSelectorContainer">
@@ -132,7 +133,6 @@ class TextEditor extends Component {
         </div>
         <div className="SpecialActionsContainer">
           <SpecialActions
-            deleteLastChar={this.handleDeleteLastChar}
             clearAllText={this.handleClearAllText}
             undoAction={this.handleUndoAction}
           />
