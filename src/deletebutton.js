@@ -3,7 +3,7 @@ class DeleteButton extends Component {
   render() {
     return (
       <button onClick={this.props.handleDeleteLastChar}>
-        Delete Last Character
+        &#8592;
       </button>
     );
   }
