@@ -103,6 +103,7 @@ class TextEditor extends Component {
   render() {
     return (
       <div className="TextEditor">
+        <h1 className="Header">Text Editor</h1>
         <div className="KeyboardContainer">
           <Keyboard
             updateText={this.handleUpdateText}
