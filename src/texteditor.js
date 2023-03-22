@@ -13,6 +13,7 @@ class TextEditor extends Component {
     language: "English",
     fontSize: "medium",
     fontStyle: "normal",
+    fontWeight:"noraml",
     color: "black",
     isUpperCase: false,
     history: [],
@@ -50,6 +51,12 @@ class TextEditor extends Component {
   handleChangeFontStyle = (style) => {
     this.setState({
       fontStyle: style,
+    });
+    this.puhsHistoy();
+  };
+  handleChangeFontWeight = (weight) => {
+    this.setState({
+      fontWeight: weight,
     });
     this.puhsHistoy();
   };
@@ -113,12 +120,14 @@ class TextEditor extends Component {
             color={this.state.color}
             fontStyle={this.state.fontStyle}
             fontSize={this.state.fontSize}
+            fontWeight={this.state.fontWeight}
           />
         </div>
         <div className="FormattingOptionsContainer">
           <FormattingOptions
             changeFontSize={this.handleChangeFontSize}
             changeFontStyle={this.handleChangeFontStyle}
+            changeFontWeight={this.handleChangeFontWeight}
             changeColor={this.handleChangeColor}
           />
         </div>

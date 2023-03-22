@@ -7,6 +7,7 @@ class DisplayArea extends Component {
           color: this.props.color,
           fontStyle: this.props.fontStyle,
           fontSize: this.props.fontSize,
+          fontWeight: this.props.fontWeight,
         }}
       >
         {this.props.text}
