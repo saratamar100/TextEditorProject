@@ -103,12 +103,7 @@ class TextEditor extends Component {
   render() {
     return (
       <div className="TextEditor">
-        <div className="KeyboardContainer">
-          <Keyboard
-            updateText={this.handleUpdateText}
-            language={this.state.language}
-          />
-        </div>
+        <h1 className= "Header"> Text Editor </h1>
         <div className="LanguageSelectorContainer">
           <LanguageSelector changeLanguage={this.handleChangeLanguage} />
         </div>
@@ -135,6 +130,12 @@ class TextEditor extends Component {
             deleteLastChar={this.handleDeleteLastChar}
             clearAllText={this.handleClearAllText}
             undoAction={this.handleUndoAction}
+          />
+        </div>
+        <div className="KeyboardContainer">
+          <Keyboard
+            updateText={this.handleUpdateText}
+            language={this.state.language}
           />
         </div>
       </div>
