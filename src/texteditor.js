@@ -13,6 +13,7 @@ class TextEditor extends Component {
     language: "English",
     fontSize: "medium",
     fontStyle: "normal",
+    fontWeight: "noraml",
     color: "black",
     isUpperCase: false,
     history: [],
@@ -25,7 +26,6 @@ class TextEditor extends Component {
       history.push(rest);
       return { history };
     });
-    console.log(this.state.history);
   };
 
   handleUpdateText = (char) => {
@@ -47,12 +47,18 @@ class TextEditor extends Component {
     this.puhsHistoy();
   };
 
-  handleChangeFontStyle = (style) => {
-    this.setState({
-      fontStyle: style,
-    });
+  handleChangeFontStyle = () => {
+    this.setState((oldState) => ({
+      fontStyle: oldState.fontStyle === "italic" ? "normal" : "italic",
+    }));
     this.puhsHistoy();
   };
+  // handleChangeFontWeight = (weight) => {
+  //   this.setState({
+  //     fontWeight: weight,
+  //   });
+  //   this.puhsHistoy();
+  // };
 
   handleChangeColor = (color) => {
     this.setState({
@@ -70,6 +76,15 @@ class TextEditor extends Component {
     }));
     this.puhsHistoy();
   };
+
+  handleChangeWeight = () => {
+    this.setState((oldState) => ({
+      fontWeight: oldState.fontWeight === "bold" ? "normal" : "bold",
+    }));
+    this.puhsHistoy();
+  };
+
+  
 
   handleDeleteLastChar = () => {
     this.setState((oldState) => ({ text: oldState.text.slice(0, -1) }));
@@ -113,12 +128,14 @@ class TextEditor extends Component {
             color={this.state.color}
             fontStyle={this.state.fontStyle}
             fontSize={this.state.fontSize}
+            fontWeight={this.state.fontWeight}
           />
         </div>
         <div className="FormattingOptionsContainer">
           <FormattingOptions
             changeFontSize={this.handleChangeFontSize}
             changeFontStyle={this.handleChangeFontStyle}
+            changeFontWeight={this.handleChangeWeight}
             changeColor={this.handleChangeColor}
           />
         </div>

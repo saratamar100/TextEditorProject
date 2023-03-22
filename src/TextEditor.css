@@ -41,10 +41,10 @@
 
 
 
-.buttonLetter{
+.buttonLetter, .deleteButton{
   margin-right: 20px;
   margin-bottom: 20px;
-  padding: 15px;
+  
   border-radius: 5px;
   cursor: pointer;
   background-color: #f2f2f2;
@@ -52,7 +52,10 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   font-size: 15px;
   box-sizing:content-box;
-
+  height: 50px;
+  width: 50px;
+  box-sizing: border-box;
+  padding: 15px;
 }
 
 .buttonOther{
