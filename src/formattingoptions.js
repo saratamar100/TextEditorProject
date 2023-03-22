@@ -7,8 +7,8 @@ class FormattingOptions extends Component {
     this.props.changeFontWeight();
   };
 
-  handleChangeFontStyle = (style) => {
-    this.props.changeFontStyle(style);
+  handleChangeFontStyle = () => {
+    this.props.changeFontStyle();
   };
 
   handleChangeColor = (color) => {
@@ -22,7 +22,7 @@ class FormattingOptions extends Component {
         <button onClick={() => this.handleChangeFontSize('medium')}>Medium</button>
         {/* Other buttons for different font sizes */}
         <button onClick={() => this.handleChangeFontWeight()}>Bold</button>
-        <button onClick={() => this.handleChangeFontStyle('italic')}>Italic</button>
+        <button onClick={() => this.handleChangeFontStyle()}>Italic</button>
         {/* Other buttons for different font styles */}
         <button onClick={() => this.handleChangeColor('red')}>Red</button>
         <button onClick={() => this.handleChangeColor('blue')}>Blue</button>

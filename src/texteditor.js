@@ -47,10 +47,10 @@ class TextEditor extends Component {
     this.puhsHistoy();
   };
 
-  handleChangeFontStyle = (style) => {
-    this.setState({
-      fontStyle: style,
-    });
+  handleChangeFontStyle = () => {
+    this.setState((oldState) => ({
+      fontStyle: oldState.fontStyle === "italic" ? "normal" : "italic",
+    }));
     this.puhsHistoy();
   };
   // handleChangeFontWeight = (weight) => {
@@ -83,6 +83,8 @@ class TextEditor extends Component {
     }));
     this.puhsHistoy();
   };
+
+  
 
   handleDeleteLastChar = () => {
     this.setState((oldState) => ({ text: oldState.text.slice(0, -1) }));
