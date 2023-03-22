@@ -12,8 +12,9 @@ class SpecialActions extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.handleClearAllText()}>Clear All Text</button>
-        <button onClick={() => this.handleUndoAction()}>Undo Action</button>
+        <button className="buttonOther" onClick={() => this.handleClearAllText()}>Clear All Text</button>
+        <button className="buttonOther" onClick={() => this.handleUndoAction()}>Undo Action</button>
+
         {/* Other buttons for different special actions */}
       </div>
     );

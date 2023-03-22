@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DeleteButton from "./deletebutton";
+import "./Keyboard.css";
 class Keyboard extends Component {
   handleClick = (char) => {
     this.props.updateText(char);
@@ -26,7 +27,7 @@ class Keyboard extends Component {
         {lines.map((line) => (
           <div>
             {line.map((c) => (
-              <button onClick={() => this.handleClick(c)}>{c}</button>
+              <button className="buttonLetter" onClick={() => this.handleClick(c)}>{c}</button>
             ))}
           </div>
         ))}
