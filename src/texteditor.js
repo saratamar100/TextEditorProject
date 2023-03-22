@@ -13,7 +13,7 @@ class TextEditor extends Component {
     language: "English",
     fontSize: "medium",
     fontStyle: "normal",
-    fontWeight:"noraml",
+    fontWeight: "noraml",
     color: "black",
     isUpperCase: false,
     history: [],
@@ -26,7 +26,6 @@ class TextEditor extends Component {
       history.push(rest);
       return { history };
     });
-    console.log(this.state.history);
   };
 
   handleUpdateText = (char) => {
@@ -54,12 +53,12 @@ class TextEditor extends Component {
     });
     this.puhsHistoy();
   };
-  handleChangeFontWeight = (weight) => {
-    this.setState({
-      fontWeight: weight,
-    });
-    this.puhsHistoy();
-  };
+  // handleChangeFontWeight = (weight) => {
+  //   this.setState({
+  //     fontWeight: weight,
+  //   });
+  //   this.puhsHistoy();
+  // };
 
   handleChangeColor = (color) => {
     this.setState({
@@ -74,6 +73,13 @@ class TextEditor extends Component {
         ? oldState.text.toLowerCase()
         : oldState.text.toUpperCase(),
       isUpperCase: !oldState.isUpperCase,
+    }));
+    this.puhsHistoy();
+  };
+
+  handleChangeWeight = () => {
+    this.setState((oldState) => ({
+      fontWeight: oldState.fontWeight === "bold" ? "normal" : "bold",
     }));
     this.puhsHistoy();
   };
@@ -127,7 +133,7 @@ class TextEditor extends Component {
           <FormattingOptions
             changeFontSize={this.handleChangeFontSize}
             changeFontStyle={this.handleChangeFontStyle}
-            changeFontWeight={this.handleChangeFontWeight}
+            changeFontWeight={this.handleChangeWeight}
             changeColor={this.handleChangeColor}
           />
         </div>
