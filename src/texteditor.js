@@ -104,12 +104,6 @@ class TextEditor extends Component {
     return (
       <div className="TextEditor">
         <h1 className="Header">Text Editor</h1>
-        <div className="KeyboardContainer">
-          <Keyboard
-            updateText={this.handleUpdateText}
-            language={this.state.language}
-          />
-        </div>
         <div className="LanguageSelectorContainer">
           <LanguageSelector changeLanguage={this.handleChangeLanguage} />
         </div>
