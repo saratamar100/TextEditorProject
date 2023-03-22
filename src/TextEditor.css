@@ -16,8 +16,6 @@
 
 .KeyboardContainer {
   bottom: 20px;
-  color: blue;
-
 }
 
 
@@ -41,15 +39,31 @@
   margin-bottom: 20px;
 }
 
-button {
-  margin-right: 10px;
-  padding: 5px;
+
+
+.buttonLetter{
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
   border-radius: 5px;
   cursor: pointer;
   background-color: #f2f2f2;
   border: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  font-size: medium;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 30px;
+  box-sizing:content-box;
+
+}
+
+.buttonOther{
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  border: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
