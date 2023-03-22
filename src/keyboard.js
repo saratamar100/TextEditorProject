@@ -11,29 +11,45 @@ class Keyboard extends Component {
       ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="],
       ["ק", "ר", "א", "ט", "ו", "י", "פ", "ס", "ד", "ג", "כ", "ל", "ך", "ף"],
       ["ז", "ח", "ט", "י", "ן", "מ", "צ", "ש", "ב", "ה", "נ", "מ", "ם"],
-      ["כ", "ל", "ע", "פ", "ך", "ף", "ץ", ",", ".", "/"],
+      ["כ", "ל", "ע", "פ", "ך", "ף", "ץ", ",", ".", "/", "?", "!"],
     ];
     if (this.props.language === "English") {
       lines = [
         ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="],
         ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"],
         ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'"],
-        ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/"],
+        ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "?", "!"],
       ];
     }
 
     return (
       <>
-        {lines.map((line) => (
+        <div>
+          <DeleteButton handleDeleteLastChar={this.props.deleteLastChar} />
+          {lines[0].map((c) => (
+            <button
+              className="buttonLetter"
+              onClick={() => this.handleClick(c)}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+        {lines.slice(1).map((line) => (
           <div>
             {line.map((c) => (
-              <button className="buttonLetter" onClick={() => this.handleClick(c)}>{c}</button>
+              <button
+                className="buttonLetter"
+                onClick={() => this.handleClick(c)}
+              >
+                {c}
+              </button>
             ))}
           </div>
         ))}
-        <DeleteButton handleDeleteLastChar={this.props.deleteLastChar} />
       </>
     );
+
     /*
     let buttons;
     const letters = {

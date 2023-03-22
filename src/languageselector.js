@@ -7,8 +7,8 @@ class LanguageSelector extends Component {
   render() {
     return (
       <div>
+        <button onClick={() => this.handleChangeLanguage('Hebrew')}>עברית</button>
         <button onClick={() => this.handleChangeLanguage('English')}>English</button>
-        <button onClick={() => this.handleChangeLanguage('Hebrew')}>Hebrew</button>
         {/* Other buttons for different languages */}
       </div>
     );
