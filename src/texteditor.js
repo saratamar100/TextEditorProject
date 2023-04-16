@@ -128,7 +128,7 @@ class TextEditor extends Component {
             fontWeight={this.state.fontWeight}
           />
         </div>
-        <DisplayArea2
+        {/* <DisplayArea2
           text="Hello world!"
           colors={[
             "red",
@@ -182,7 +182,7 @@ class TextEditor extends Component {
             "bold",
             "bold",
           ]}
-        />
+        /> */}
 
         <div className="FormattingOptionsContainer">
           <FormattingOptions
