@@ -3,9 +3,7 @@ import "./TextEditor.css";
 import LanguageSelector from "./languageselector";
 import DisplayArea from "./displayarea";
 import FormattingOptions from "./formattingoptions";
-import GeneralChanges from "./generalchanges";
 import Keyboard from "./keyboard";
-import SpecialActions from "./specialactions";
 
 class TextEditor extends Component {
   state = {
@@ -84,8 +82,6 @@ class TextEditor extends Component {
     this.puhsHistoy();
   };
 
-  
-
   handleDeleteLastChar = () => {
     this.setState((oldState) => ({ text: oldState.text.slice(0, -1) }));
     this.puhsHistoy();
@@ -137,13 +133,7 @@ class TextEditor extends Component {
             changeFontStyle={this.handleChangeFontStyle}
             changeFontWeight={this.handleChangeWeight}
             changeColor={this.handleChangeColor}
-          />
-        </div>
-        <div className="GeneralChangesContainer">
-          <GeneralChanges changeCase={this.handleChangeCase} />
-        </div>
-        <div className="SpecialActionsContainer">
-          <SpecialActions
+            changeCase={this.handleChangeCase}
             clearAllText={this.handleClearAllText}
             undoAction={this.handleUndoAction}
           />
