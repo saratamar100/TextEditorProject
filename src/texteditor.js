@@ -4,6 +4,7 @@ import LanguageSelector from "./languageselector";
 import DisplayArea from "./displayarea";
 import FormattingOptions from "./formattingoptions";
 import Keyboard from "./keyboard";
+import DisplayArea2 from "./displayarea2";
 
 class TextEditor extends Component {
   state = {
@@ -127,6 +128,62 @@ class TextEditor extends Component {
             fontWeight={this.state.fontWeight}
           />
         </div>
+        <DisplayArea2
+          text="Hello world!"
+          colors={[
+            "red",
+            "orange",
+            "yellow",
+            "green",
+            "blue",
+            "indigo",
+            "violet",
+            "red",
+            "orange",
+            "yellow",
+            "green",
+          ]}
+          fontStyles={[
+            "normal",
+            "normal",
+            "normal",
+            "normal",
+            "normal",
+            "normal",
+            "normal",
+            "italic",
+            "italic",
+            "italic",
+            "italic",
+          ]}
+          fontSizes={[
+            "12px",
+            "12px",
+            "12px",
+            "14px",
+            "14px",
+            "14px",
+            "14px",
+            "16px",
+            "16px",
+            "16px",
+            "16px",
+          ]}
+          fontWeights={[
+            "normal",
+            "normal",
+            "normal",
+            "normal",
+            "normal",
+            "normal",
+            "normal",
+            "bold",
+            "bold",
+            "bold",
+            "bold",
+          ]}
+        />
+
         <div className="FormattingOptionsContainer">
           <FormattingOptions
             changeFontSize={this.handleChangeFontSize}
