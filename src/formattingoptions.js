@@ -15,6 +15,17 @@ class FormattingOptions extends Component {
     this.props.changeColor(color);
   };
 
+  handleChangeCase = () => {
+    this.props.changeCase();
+  };
+  handleClearAllText = () => {
+    this.props.clearAllText();
+  };
+
+  handleUndoAction = () => {
+    this.props.undoAction();
+  };
+
   render() {
     return (
       <div>
@@ -27,6 +38,9 @@ class FormattingOptions extends Component {
         <button onClick={() => this.handleChangeColor('red')}>Red</button>
         <button onClick={() => this.handleChangeColor('blue')}>Blue</button>
         {/* Other buttons for different colors */}
+        <button onClick={() => this.handleChangeCase()}>Change Case</button>
+        <button className="buttonOther" onClick={() => this.handleClearAllText()}>Clear All Text</button>
+        <button className="buttonOther" onClick={() => this.handleUndoAction()}>Undo Action</button>
       </div>
     );
   }
