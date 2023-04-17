@@ -29,16 +29,16 @@ class FormattingOptions extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.handleChangeFontSize('small')}>Small</button>
-        <button onClick={() => this.handleChangeFontSize('medium')}>Medium</button>
+        <button className="buttonOther" onClick={() => this.handleChangeFontSize('small')}>Small</button>
+        <button className="buttonOther" onClick={() => this.handleChangeFontSize('medium')}>Medium</button>
         {/* Other buttons for different font sizes */}
-        <button onClick={() => this.handleChangeFontWeight()}>Bold</button>
-        <button onClick={() => this.handleChangeFontStyle()}>Italic</button>
+        <button className="buttonOther"onClick={() => this.handleChangeFontWeight()}>Bold</button>
+        <button className="buttonOther" onClick={() => this.handleChangeFontStyle()}>Italic</button>
         {/* Other buttons for different font styles */}
-        <button onClick={() => this.handleChangeColor('red')}>Red</button>
-        <button onClick={() => this.handleChangeColor('blue')}>Blue</button>
+        <button className="buttonOther" onClick={() => this.handleChangeColor('red')}>Red</button>
+        <button className="buttonOther" onClick={() => this.handleChangeColor('blue')}>Blue</button>
         {/* Other buttons for different colors */}
-        <button onClick={() => this.handleChangeCase()}>Change Case</button>
+        <button className="buttonOther" onClick={() => this.handleChangeCase()}>Change Case</button>
         <button className="buttonOther" onClick={() => this.handleClearAllText()}>Clear All Text</button>
         <button className="buttonOther" onClick={() => this.handleUndoAction()}>Undo Action</button>
       </div>

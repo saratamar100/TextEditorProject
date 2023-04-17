@@ -2,7 +2,7 @@ import React, { Component } from "react";
 class DisplayArea extends Component {
   render() {
     return (
-      <div
+      <p className="display_area"
         style={{
           color: this.props.color,
           fontStyle: this.props.fontStyle,
@@ -11,7 +11,7 @@ class DisplayArea extends Component {
         }}
       >
         {this.props.text}
-      </div>
+      </p>
     );
   }
 }
