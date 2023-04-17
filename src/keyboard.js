@@ -25,7 +25,7 @@ class Keyboard extends Component {
     return (
       <>
         <div>
-          <DeleteButton handleDeleteLastChar={this.props.deleteLastChar} />
+          <DeleteButton deleteLastChar={this.props.deleteLastChar} />
           {lines[0].map((c) => (
             <button
               className="buttonLetter"

@@ -160,6 +160,7 @@ class TextEditor extends Component {
           <Keyboard
             updateText={this.handleUpdateText}
             language={this.state.language}
+            deleteLastChar={this.handleDeleteLastChar}
           />
         </div>
       </div>
