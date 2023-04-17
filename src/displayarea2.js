@@ -20,7 +20,7 @@ class DisplayArea2 extends Component {
       );
     }
 
-    return <div>{styles}</div>;
+    return <p className="display_area">{styles}</p>;
   }
 }
 
