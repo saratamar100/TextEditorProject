@@ -100,6 +100,10 @@ class TextEditor extends Component {
   handleClearAllText = () => {
     this.setState({
       text: "",
+      colors: [],
+      fontStyles: [],
+      fontSizes: [],
+      fontWeights: [],
     });
     this.puhsHistoy();
   };
