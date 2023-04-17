@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./TextEditor.css";
 import LanguageSelector from "./languageselector";
-import DisplayArea from "./displayarea";
 import FormattingOptions from "./formattingoptions";
 import Keyboard from "./keyboard";
 import DisplayArea2 from "./displayarea2";
@@ -16,11 +15,24 @@ class TextEditor extends Component {
     color: "black",
     isUpperCase: false,
     history: [],
+    colors: [],
+    fontStyles: [],
+    fontSizes: [],
+    fontWeights: [],
   };
 
   puhsHistoy = () => {
     this.setState((oldState) => {
-      let { language, history, ...rest } = oldState;
+      let {
+        language,
+        history,
+        fontSize,
+        fontStyle,
+        fontWeight,
+        color,
+        isUpperCase,
+        ...rest
+      } = oldState;
       history = this.state.history.slice();
       history.push(rest);
       return { history };
@@ -28,8 +40,14 @@ class TextEditor extends Component {
   };
 
   handleUpdateText = (char) => {
-    //const updatedText = this.state.text + char;
-    this.setState((oldState) => ({ text: oldState.text + char }));
+    this.setState((oldState) => ({
+      text:
+        oldState.text + (this.state.isUpperCase ? char.toUpperCase() : char),
+      colors: [...oldState.colors, oldState.color],
+      fontStyles: [...oldState.fontStyles, oldState.fontStyle],
+      fontSizes: [...oldState.fontSizes, oldState.fontSize],
+      fontWeights: [...oldState.fontWeights, oldState.fontWeight],
+    }));
     this.puhsHistoy();
   };
 
@@ -43,48 +61,39 @@ class TextEditor extends Component {
     this.setState({
       fontSize: size,
     });
-    this.puhsHistoy();
   };
 
   handleChangeFontStyle = () => {
     this.setState((oldState) => ({
       fontStyle: oldState.fontStyle === "italic" ? "normal" : "italic",
     }));
-    this.puhsHistoy();
   };
-  // handleChangeFontWeight = (weight) => {
-  //   this.setState({
-  //     fontWeight: weight,
-  //   });
-  //   this.puhsHistoy();
-  // };
-
   handleChangeColor = (color) => {
     this.setState({
       color: color,
     });
-    this.puhsHistoy();
   };
 
   handleChangeCase = () => {
     this.setState((oldState) => ({
-      text: oldState.isUpperCase
-        ? oldState.text.toLowerCase()
-        : oldState.text.toUpperCase(),
       isUpperCase: !oldState.isUpperCase,
     }));
-    this.puhsHistoy();
   };
 
   handleChangeWeight = () => {
     this.setState((oldState) => ({
       fontWeight: oldState.fontWeight === "bold" ? "normal" : "bold",
     }));
-    this.puhsHistoy();
   };
 
   handleDeleteLastChar = () => {
-    this.setState((oldState) => ({ text: oldState.text.slice(0, -1) }));
+    this.setState((oldState) => ({
+      text: oldState.text.slice(0, -1),
+      colors: oldState.colors.slice(0, -1),
+      fontStyles: oldState.fontStyle.slice(0, -1),
+      fontSizes: oldState.fontSizes.slice(0, -1),
+      fontWeights: oldState.fontWeights.slice(0, -1),
+    }));
     this.puhsHistoy();
   };
 
@@ -120,69 +129,21 @@ class TextEditor extends Component {
           <LanguageSelector changeLanguage={this.handleChangeLanguage} />
         </div>
         <div className="DisplayAreaContainer">
-          <DisplayArea
+          {/* <DisplayArea
             text={this.state.text}
             color={this.state.color}
             fontStyle={this.state.fontStyle}
             fontSize={this.state.fontSize}
             fontWeight={this.state.fontWeight}
+          /> */}
+          <DisplayArea2
+            text={this.state.text}
+            colors={this.state.colors}
+            fontStyles={this.state.fontStyles}
+            fontSizes={this.state.fontSizes}
+            fontWeights={this.state.fontWeights}
           />
         </div>
-        {/* <DisplayArea2
-          text="Hello world!"
-          colors={[
-            "red",
-            "orange",
-            "yellow",
-            "green",
-            "blue",
-            "indigo",
-            "violet",
-            "red",
-            "orange",
-            "yellow",
-            "green",
-          ]}
-          fontStyles={[
-            "normal",
-            "normal",
-            "normal",
-            "normal",
-            "normal",
-            "normal",
-            "normal",
-            "italic",
-            "italic",
-            "italic",
-            "italic",
-          ]}
-          fontSizes={[
-            "12px",
-            "12px",
-            "12px",
-            "14px",
-            "14px",
-            "14px",
-            "14px",
-            "16px",
-            "16px",
-            "16px",
-            "16px",
-          ]}
-          fontWeights={[
-            "normal",
-            "normal",
-            "normal",
-            "normal",
-            "normal",
-            "normal",
-            "normal",
-            "bold",
-            "bold",
-            "bold",
-            "bold",
-          ]}
-        /> */}
 
         <div className="FormattingOptionsContainer">
           <FormattingOptions
