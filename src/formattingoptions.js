@@ -37,6 +37,7 @@ class FormattingOptions extends Component {
         {/* Other buttons for different font styles */}
         <button className="buttonOther" onClick={() => this.handleChangeColor('red')}>Red</button>
         <button className="buttonOther" onClick={() => this.handleChangeColor('blue')}>Blue</button>
+        <button className="buttonOther" onClick={() => this.handleChangeColor('black')}>Black</button>
         {/* Other buttons for different colors */}
         <button className="buttonOther" onClick={() => this.handleChangeCase()}>Change Case</button>
         <button className="buttonOther" onClick={() => this.handleClearAllText()}>Clear All Text</button>
