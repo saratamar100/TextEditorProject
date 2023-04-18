@@ -158,6 +158,11 @@ class TextEditor extends Component {
             changeCase={this.handleChangeCase}
             clearAllText={this.handleClearAllText}
             undoAction={this.handleUndoAction}
+            fontSize={this.state.fontSize}
+            fontStyle={this.state.fontStyle}
+            fontWeight={this.state.fontWeight}
+            color={this.state.color}
+            isUpperCase={this.state.isUpperCase}
           />
         </div>
         <div className="KeyboardContainer">

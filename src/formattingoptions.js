@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 class FormattingOptions extends Component {
   handleChangeFontSize = (size) => {
     this.props.changeFontSize(size);
@@ -27,21 +27,92 @@ class FormattingOptions extends Component {
   };
 
   render() {
+    const { fontSize, fontStyle, fontWeight, color, isUpperCase } = this.props;
+    const style = { backgroundColor: "aqua" };
     return (
       <div>
-        <button className="buttonOther" onClick={() => this.handleChangeFontSize('small')}>Small</button>
-        <button className="buttonOther" onClick={() => this.handleChangeFontSize('medium')}>Medium</button>
-        {/* Other buttons for different font sizes */}
-        <button className="buttonOther"onClick={() => this.handleChangeFontWeight()}>Bold</button>
-        <button className="buttonOther" onClick={() => this.handleChangeFontStyle()}>Italic</button>
-        {/* Other buttons for different font styles */}
-        <button className="buttonOther" onClick={() => this.handleChangeColor('red')}>Red</button>
-        <button className="buttonOther" onClick={() => this.handleChangeColor('blue')}>Blue</button>
-        <button className="buttonOther" onClick={() => this.handleChangeColor('black')}>Black</button>
-        {/* Other buttons for different colors */}
-        <button className="buttonOther" onClick={() => this.handleChangeCase()}>Change Case</button>
-        <button className="buttonOther" onClick={() => this.handleClearAllText()}>Clear All Text</button>
-        <button className="buttonOther" onClick={() => this.handleUndoAction()}>Undo Action</button>
+        <button
+          style={fontSize === "small" ? style : {}}
+          className="buttonOther"
+          onClick={() => this.handleChangeFontSize("small")}
+        >
+          Small
+        </button>
+        <button
+          style={fontSize === "medium" ? style : {}}
+          className="buttonOther"
+          onClick={() => this.handleChangeFontSize("medium")}
+        >
+          Medium
+        </button>
+        <button
+          style={fontSize === "large" ? style : {}}
+          className="buttonOther"
+          onClick={() => this.handleChangeFontSize("large")}
+        >
+          Large
+        </button>
+        <button
+          style={fontSize === "normal" ? style : {}}
+          className="buttonOther"
+          onClick={() => this.handleChangeFontSize("noraml")}
+        >
+          Normal
+        </button>
+
+        <button
+          style={fontWeight === "bold" ? style : {}}
+          className="buttonOther"
+          onClick={() => this.handleChangeFontWeight()}
+        >
+          Bold
+        </button>
+        <button
+          style={fontStyle === "italic" ? style : {}}
+          className="buttonOther"
+          onClick={() => this.handleChangeFontStyle()}
+        >
+          Italic
+        </button>
+
+        <button
+          style={color === "red" ? style : {}}
+          className="buttonOther"
+          onClick={() => this.handleChangeColor("red")}
+        >
+          Red
+        </button>
+        <button
+          style={color === "blue" ? style : {}}
+          className="buttonOther"
+          onClick={() => this.handleChangeColor("blue")}
+        >
+          Blue
+        </button>
+        <button
+          style={color === "black" ? style : {}}
+          className="buttonOther"
+          onClick={() => this.handleChangeColor("black")}
+        >
+          Black
+        </button>
+
+        <button
+          style={isUpperCase ? style : {}}
+          className="buttonOther"
+          onClick={() => this.handleChangeCase()}
+        >
+          Change Case
+        </button>
+        <button
+          className="buttonOther"
+          onClick={() => this.handleClearAllText()}
+        >
+          Clear All Text
+        </button>
+        <button className="buttonOther" onClick={() => this.handleUndoAction()}>
+          Undo Action
+        </button>
       </div>
     );
   }
