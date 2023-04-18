@@ -47,6 +47,12 @@ class Keyboard extends Component {
             ))}
           </div>
         ))}
+        <div>
+          <button
+            className="buttonLetter space"
+            onClick={() => this.handleClick(" ")}
+          />
+        </div>
       </>
     );
 

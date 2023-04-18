@@ -62,6 +62,9 @@
   box-sizing: border-box;
   
 }
+.space{
+  width: 150px;
+}
 
 .buttonOther{
   margin-right: 10px;
