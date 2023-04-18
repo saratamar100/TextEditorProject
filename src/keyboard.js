@@ -51,7 +51,9 @@ class Keyboard extends Component {
           <button
             className="buttonLetter space"
             onClick={() => this.handleClick(" ")}
-          />
+          >
+            Space
+          </button>
           <LanguageSelector changeLanguage={this.props.changeLanguage} />
         </div>
       </>
