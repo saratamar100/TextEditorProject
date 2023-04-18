@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DeleteButton from "./deletebutton";
-import "./Keyboard.css";
+import LanguageSelector from "./languageselector";
 class Keyboard extends Component {
   handleClick = (char) => {
     this.props.updateText(char);
@@ -52,6 +52,7 @@ class Keyboard extends Component {
             className="buttonLetter space"
             onClick={() => this.handleClick(" ")}
           />
+          <LanguageSelector changeLanguage={this.props.changeLanguage} />
         </div>
       </>
     );
