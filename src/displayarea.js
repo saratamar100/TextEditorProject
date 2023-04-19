@@ -1,18 +1,25 @@
 import React, { Component } from "react";
-class DisplayArea extends Component {
+
+class DisplayArea2 extends Component {
   render() {
-    return (
-      <p className="display_area"
-        style={{
-          color: this.props.color,
-          fontStyle: this.props.fontStyle,
-          fontSize: this.props.fontSize,
-          fontWeight: this.props.fontWeight
-        }}
-      >
-        {this.props.text}
-      </p>
-    );
+    const { text } = this.props;
+    const styles = [];
+    for (let i = 0; i < text.length; i++) {
+      const charStyle = {
+        color: this.props.colors[i % this.props.colors.length],
+        fontStyle: this.props.fontStyles[i % this.props.fontStyles.length],
+        fontSize: this.props.fontSizes[i % this.props.fontSizes.length],
+        fontWeight: this.props.fontWeights[i % this.props.fontWeights.length],
+      };
+      styles.push(
+        <span key={i} style={charStyle}>
+          {text.charAt(i)}
+        </span>
+      );
+    }
+
+    return <p className="display_area">{styles}</p>;
   }
 }
-export default DisplayArea;
+
+export default DisplayArea2;
