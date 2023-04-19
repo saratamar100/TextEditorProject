@@ -28,7 +28,7 @@ class FormattingOptions extends Component {
 
   render() {
     const { fontSize, fontStyle, fontWeight, color, isUpperCase } = this.props;
-    const style = { backgroundColor: "aqua" };
+    const style = { backgroundColor: "DarkCyan" };
     return (
       <div>
         <button
