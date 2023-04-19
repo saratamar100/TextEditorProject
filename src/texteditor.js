@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./TextEditor.css";
 import FormattingOptions from "./formattingoptions";
 import Keyboard from "./keyboard";
-import DisplayArea2 from "./displayarea2";
+import DisplayArea from "./displayarea";
 
 class TextEditor extends Component {
   state = {
@@ -129,7 +129,7 @@ class TextEditor extends Component {
       <div className="TextEditor">
         <h1 className="Header">Text Editor</h1>
         <div className="DisplayAreaContainer">
-          <DisplayArea2
+          <DisplayArea
             text={this.state.text}
             colors={this.state.colors}
             fontStyles={this.state.fontStyles}
