@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DeleteButton from "./deletebutton";
-import "./Keyboard.css";
+import LanguageSelector from "./languageselector";
 class Keyboard extends Component {
   handleClick = (char) => {
     this.props.updateText(char);
@@ -8,14 +8,14 @@ class Keyboard extends Component {
 
   render() {
     let lines = [
-      ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="],
+      ["`", "0", "9", "8", "7", "6", "5", "4", "3", "2", "1", "-", "="],
       ["ק", "ר", "א", "ט", "ו", "י", "פ", "ס", "ד", "ג", "כ", "ל", "ך", "ף"],
       ["ז", "ח", "ט", "י", "ן", "מ", "צ", "ש", "ב", "ה", "נ", "מ", "ם"],
       ["כ", "ל", "ע", "פ", "ך", "ף", "ץ", ",", ".", "/", "?", "!"],
     ];
     if (this.props.language === "English") {
       lines = [
-        ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="],
+        ["`", "0", "9", "8", "7", "6", "5", "4", "3", "2", "1", "-", "="],
         ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"],
         ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'"],
         ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "?", "!"],
@@ -47,6 +47,15 @@ class Keyboard extends Component {
             ))}
           </div>
         ))}
+        <div>
+          <button
+            className="buttonLetter space"
+            onClick={() => this.handleClick(" ")}
+          >
+            Space
+          </button>
+          <LanguageSelector changeLanguage={this.props.changeLanguage} />
+        </div>
       </>
     );
 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./TextEditor.css";
-import LanguageSelector from "./languageselector";
 import FormattingOptions from "./formattingoptions";
 import Keyboard from "./keyboard";
 import DisplayArea2 from "./displayarea2";
@@ -129,17 +128,7 @@ class TextEditor extends Component {
     return (
       <div className="TextEditor">
         <h1 className="Header">Text Editor</h1>
-        <div className="LanguageSelectorContainer">
-          <LanguageSelector changeLanguage={this.handleChangeLanguage} />
-        </div>
         <div className="DisplayAreaContainer">
-          {/* <DisplayArea
-            text={this.state.text}
-            color={this.state.color}
-            fontStyle={this.state.fontStyle}
-            fontSize={this.state.fontSize}
-            fontWeight={this.state.fontWeight}
-          /> */}
           <DisplayArea2
             text={this.state.text}
             colors={this.state.colors}
@@ -158,6 +147,11 @@ class TextEditor extends Component {
             changeCase={this.handleChangeCase}
             clearAllText={this.handleClearAllText}
             undoAction={this.handleUndoAction}
+            fontSize={this.state.fontSize}
+            fontStyle={this.state.fontStyle}
+            fontWeight={this.state.fontWeight}
+            color={this.state.color}
+            isUpperCase={this.state.isUpperCase}
           />
         </div>
         <div className="KeyboardContainer">
@@ -165,6 +159,7 @@ class TextEditor extends Component {
             updateText={this.handleUpdateText}
             language={this.state.language}
             deleteLastChar={this.handleDeleteLastChar}
+            changeLanguage={this.handleChangeLanguage}
           />
         </div>
       </div>
