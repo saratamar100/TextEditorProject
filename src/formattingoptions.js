@@ -52,13 +52,6 @@ class FormattingOptions extends Component {
         >
           Large
         </button>
-        <button
-          style={fontSize === "normal" ? style : {}}
-          className="buttonOther"
-          onClick={() => this.handleChangeFontSize("noraml")}
-        >
-          Normal
-        </button>
 
         <button
           style={fontWeight === "bold" ? style : {}}
@@ -102,7 +95,7 @@ class FormattingOptions extends Component {
           className="buttonOther"
           onClick={() => this.handleChangeCase()}
         >
-          Change Case
+          CapsLock
         </button>
         <button
           className="buttonOther"
